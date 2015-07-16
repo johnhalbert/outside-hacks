@@ -1,0 +1,138 @@
+<script>
+ $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false // Displays dropdown below the button
+    }
+  );
+
+ $('.modal-trigger').leanModal({
+     dismissible: true, // Modal can be dismissed by clicking outside of the modal
+     opacity: .5, // Opacity of modal background
+     in_duration: 300, // Transition in duration
+     out_duration: 200 // Transition out duration
+   }
+ );
+</script>
+ <div ng-controller='userCtrl'>
+ 	  <nav>
+	    <div class="nav-wrapper blue darken-4">
+	      <a href="#" class="brand-logo"><img src='images/logo.png' /> DiscoverLineup</a>
+       
+        
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="modal-trigger" href="#modal1"><big>OUTSIDE LANDS</big></a></li>
+          <li>Est: {{weatherData.trip.temp_high.avg.F}} deg. F</li>
+
+	        <li><a href="/logout">Log Out</a></li>
+          <!-- <li>
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">Treasure Island</a></li>
+              <li><a href="#!">Bilboard Top 100</a></li>
+            </ul>
+          </li> -->
+
+	      </ul>
+	    </div>
+	  </nav>
+
+    <!-- Modal Trigger -->
+
+ <!-- Modal Structure -->
+ <div id="modal1" class="modal modal-fixed-footer">
+   <div class="modal-content">
+     <h4>Select From Festival List</h4>
+      <ul>
+        <li><a href=''>Moods of Madison</a><br /></li>
+        <li><a href=''>Camp Bisco</a><br /></li>
+        <li><a href=''>Coachella</a><br /></li>
+        <li><a href=''>Rock USA</a><br /></li>
+        <li><a href=''>Moondance Jam</a><br /></li>
+      </ul>
+   </div>
+   <div class="modal-footer">
+     <a href="#/user/10101531528342200" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+   </div>
+ </div>
+<!-- <div class="row" ng-hide='showWeather'>
+      <div class="col s3">
+        <div class="card-panel blue lighten-2">
+          <h5 class='white-text'><img src='images/cloud.png' width='32' height='32' />Weather Forecast</h5>
+          <span class="white-text">
+            <ul>
+              <li>Cloud Coverage: {{weatherData.trip.cloud_cover.cond}}<br /></li>
+              <li>Temp: {{weatherData.trip.temp_high.avg.F}} degrees F<br /></li>
+              <li>Chance of Rain: {{weatherData.trip.chance_of.chanceofrainday.percentage}}%<br /></li>
+            </ul>
+          </span>
+          <button class="waves-effect waves-light btn blue" ng-click='dismissWeather()'>Okay</button>
+        </div>
+      </div>
+    </div>
+ -->
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <!-- <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a> -->
+    <a class="btn-floating btn-large red">
+     <i class="large material-icons"><img src="images/social.png" height="40px" width="30px"></i>
+   </a>
+    <ul>
+      <li><a class="btn-floating  indigo darken-1" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#url"><i class="material-icons"><img src="images/facebook.png" height="40px" width="30px"></i></i></a></li>
+
+
+      <li><a class="btn-floating cyan lighten-3" href="https://twitter.com/share" class="twitter-share-button" data-url="http://discoverlands.com" data-text="Check out DiscoverLands"><i class="material-icons"><img src="images/twitter.png" height="40px" width="30px"></i></a></li>
+
+      <li><a class="btn-floating red" href="https://plus.google.com/share?url=discoverlands.com"><i class="material-icons"><img src="images/google.png" height="40px" width="30px"></i></a></li>
+    </ul>
+  </div>
+<div class='container main-body'>
+	<div class='col s12'>
+		<div class='main-top'>
+				<button class="waves-effect waves-light btn-large blue darken-3" ng-click='changeDay(1)'>Fri. Aug 7</button> <button class="waves-effect waves-light btn-large blue darken-3" ng-click='changeDay(2)'>Sat. Aug 8</button> <a class="waves-effect waves-light btn-large blue darken-3" ng-click='changeDay(3)'>Sun. Aug 9</a>
+				<button ng-show='allShown' class="waves-effect waves-light btn-large blue darken-3 right" ng-click='allOrMine("mine")'>My Lineup</button>
+        <button ng-hide='allShown' class="waves-effect waves-light btn-large blue darken-3 right" ng-click='allOrMine("all")'>All Performers</button>
+
+     
+		</div>
+	</div>
+	<div class="row" ng-repeat='performance in artists.performances | filter: day_filter'>
+      <div class="col s12">
+        <div class="card-panel white">
+        	<h3><a href='#/singleartist/{{performance.artist}}'>{{performance.artist}}</a></h3>
+        	<a class="btn-floating btn-large waves-effect waves-light red right" ng-click='likeArtist(performance.artist)'><i class="material-icons">add</i></a><span class='right likeCount'><small>Add to Lineup</small> {{performance.likes}}</span>
+          <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Gupjrl5ZSX0" frameborder="0" allowfullscreen></iframe> -->
+          <span ng-bind-html='performance.yturl'></span>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+<footer class="page-footer blue">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Discover Music</h5>
+                <p class="grey-text text-lighten-4">Make the most of your concert and festival experience.  See the artists you want, including the ones you haven't discovered!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Team</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="mailto:">Ashish Ranjan</a></li>
+                  <li><a class="grey-text text-lighten-3" href='mailto:srflafazan@gmail.com'>Shain Lafazan</a></li>
+                  <li><a class="grey-text text-lighten-3" href="mailto:johnhalbert@gmail.com">John Halbert</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Discover Music
+            </div>
+          </div>
+        </footer>

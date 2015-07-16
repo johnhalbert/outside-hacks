@@ -1,0 +1,73 @@
+ 	  <nav>
+	    <div class="nav-wrapper purple darken-4">
+	      <a href="d" class="brand-logo"><img src='images/logo.png' /> DiscoverLineup</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="collapsible.html">Log Out</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating  indigo darken-1" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#url"><i class="material-icons"><img src="images/facebook.png" height="40px" width="30px"></i></i></a></li>
+
+
+      <li><a class="btn-floating cyan lighten-3" href="https://twitter.com/share" class="twitter-share-button" data-url="http://discoverlands.com" data-text="Check out DiscoverLands"><i class="material-icons"><img src="images/twitter.png" height="40px" width="30px"></i></a></li>
+
+      <li><a class="btn-floating red" href="https://plus.google.com/share?url=discoverlands.com"><i class="material-icons"><img src="images/google.png" height="40px" width="30px"></i></a></li>
+    </ul>
+  </div>
+<div class='container main-body' ng-controller='userCtrl'>
+	<div class='col s12'>
+		<div class='main-top'>
+				
+
+     
+		</div>
+	</div>
+	<div class="row">
+      <div class="col s12">
+        <div class="card-panel white">
+          <img src='{{gracenote[0].artist_image_url}}' />
+          <br />
+          <a href="{{gracenote[0].artist_bio_url}}">Artist Bio</a>
+        	<h3>{{gracenote[0].album_artist_name}}</h3>
+          <h4>{{gracenote[0].album_title}}</h4>
+          <h5>Year: {{gracenote[0].album_year}}</h5>
+          <h4>Track List</h4>
+            <ul>
+              <li ng-repeat='track in gracenote[0].tracks'>-{{track.track_title}}<br /></li>
+            </ul>
+        	
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+ <footer class="page-footer purple">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Discover Music</h5>
+                <p class="grey-text text-lighten-4">Make the most of your concert and festival experience.  See the artists you want, including the ones you haven't discovered!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Team</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="mailto:">Ashish Ranjan</a></li>
+                  <li><a class="grey-text text-lighten-3" href='mailto:srflafazan@gmail.com'>Shain Lafazan</a></li>
+                  <li><a class="grey-text text-lighten-3" href="mailto:johnhalbert@gmail.com">John Halbert</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Discover Music
+            </div>
+          </div>
+        </footer>

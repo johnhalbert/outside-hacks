@@ -1,0 +1,43 @@
+DATABASE NEEDS:
+---------------
+
+For Users
+=========
+- Username
+- Email
+- Password
+- Outside hacks username
+- List of artists attending (associated between artists as well, artist id)
+- Embedded song list
+	- Like buttons
+
+For Artists
+===========
+
+- Artist Name
+- Email
+- Password
+- List of users attending their thing (associated between users as well)
+	- Embedded songs heard
+
+APIs:
+-----
+
+- Google Maps, Google Geolocation
+- Facebook/twitter login/share - passportjs.
+- Angular Full Screen?
+- D3 for visualizations? (speech recognition HTML5 to access microphone)
+
+
+FUNCTIONALITY:
+--------------
+
+- Socket integration, user receives messages, images, videos, calls to functions from artist, who have list of users attending their performance
+- Collecting data from user accounts which gets included in artists database for performance analytics
+- Geolocation to determine what performance the user is attending based on location, actual time and scheduled perforamcne time, assisting gracenote api to determine what song is playing and adding that song to the user's song list.
+	- Users can like songs.
+	- Google youtube or other music api to call back the song later and listen to after the concert.
+- Browser geolocation and api maps
+- Check/update Outside Lands attending list on login.
+- Twitter/Facebook Share
+- Weather API

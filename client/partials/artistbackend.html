@@ -1,0 +1,63 @@
+ 	  <nav>
+	    <div class="nav-wrapper orange">
+	      <a href="#" class="brand-logo logo-move"><img src='images/logo.png' /> DiscoverLineup</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="collapsible.html">Log Out</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+
+
+<div class='container main-body'>
+	<div class='col s12'>
+		<div class='main-top'>
+		</div>
+	</div>
+	<div class="row" ng-controller='userCtrl'>
+      <div class="col s4">
+        <div class="card-panel white">
+        	<h3>Users:</h3>
+        	   <ul>
+                <li ng-repeat='user in usersWhoLike' ng-bind='user'></li>
+             </ul>
+        </div>
+      </div>
+
+    
+      <div class="col s8" ng-controller='socketCtrl'>
+        <div class="card-panel white">
+          <h3>Chat:</h3>
+             <form>
+                  <label>Message:</label>
+                  <input type='text' ng-model='newArtistMessage' />
+                  <button ng-click='sendArtistMessage()' class="waves-effect waves-light btn-large orange lighten-2 right">Send Message</button>
+                  <br /><br /><br />
+             </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<footer class="page-footer orange">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Discover Music</h5>
+                <p class="grey-text text-lighten-4">Make the most of your concert and festival experience.  See the artists you want, including the ones you haven't discovered!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Team</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="mailto:">Ashish Ranjan</a></li>
+                  <li><a class="grey-text text-lighten-3" href='mailto:srflafazan@gmail.com'>Shain Lafazan</a></li>
+                  <li><a class="grey-text text-lighten-3" href="mailto:johnhalbert@gmail.com">John Halbert</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Discover Music
+            </div>
+          </div>
+        </footer>
